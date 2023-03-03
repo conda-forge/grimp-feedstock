@@ -1,11 +1,11 @@
-About grimp
-===========
+About grimp-feedstock
+=====================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/grimp-feedstock/blob/main/LICENSE.txt)
 
 Home: https://pypi.org/project/grimp/
 
 Package license: BSD-2-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/grimp-feedstock/blob/main/LICENSE.txt)
 
 Summary: Builds a queryable graph of the imports within one or more Python packages.
 
