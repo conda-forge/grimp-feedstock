@@ -21,8 +21,6 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('rust') }}
     - cargo-bundle-licenses
-
-requirements:
   host:
     - python
     - maturin >=1.0,<2.0
