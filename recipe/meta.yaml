@@ -1,5 +1,5 @@
 {% set name = "grimp" %}
-{% set version = "3.2" %}
+{% set version = "3.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/grimp-{{ version }}.tar.gz
-  sha256: 5ec7e7475a3616b1bec14d852784fa2e3829a4331fd2309a055f1e75ba5a4f50
+  sha256: dc9560aed1d82222b361fe5f312a775b15a96b9237670f3a9fb20f44d30d5762
 
 build:
   skip: true  # [py<38]
