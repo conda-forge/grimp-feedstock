@@ -268,5 +268,6 @@ Feedstock Maintainers
 =====================
 
 * [@cshaley](https://github.com/cshaley/)
+* [@peterbygrave](https://github.com/peterbygrave/)
 * [@rxm7706](https://github.com/rxm7706/)
 
