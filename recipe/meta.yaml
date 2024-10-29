@@ -1,5 +1,5 @@
 {% set name = "grimp" %}
-{% set version = "3.2" %}
+{% set version = "3.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/grimp-{{ version }}.tar.gz
-  sha256: 5ec7e7475a3616b1bec14d852784fa2e3829a4331fd2309a055f1e75ba5a4f50
+  sha256: dc9560aed1d82222b361fe5f312a775b15a96b9237670f3a9fb20f44d30d5762
 
 build:
   skip: true  # [py<38]
@@ -20,7 +20,7 @@ requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - maturin >=1.0,<2.0                                # [build_platform != target_platform]
+    - maturin >=1.0,<2.0                     # [build_platform != target_platform]
     #- {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('rust') }}
@@ -31,13 +31,14 @@ requirements:
     - pip
   run:
     - python
-    - typing_extensions >=3.10.0.0
+    - typing-extensions >=3.10.0.0
 
 test:
   imports:
     - grimp
   commands:
     - pip check
+    - python -c "from grimp import build_graph"
   requires:
     - pip
 
@@ -49,6 +50,6 @@ about:
 
 extra:
   recipe-maintainers:
+    - cshaley
     - peterbygrave
     - rxm7706
-    - cshaley
