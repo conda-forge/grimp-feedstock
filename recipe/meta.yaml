@@ -25,11 +25,13 @@ requirements:
     - {{ stdlib("c") }}
     - {{ compiler('rust') }}
     - cargo-bundle-licenses
+    - setuptools
   host:
     - python
     - pip
     - maturin >=1.0,<2.0
     - typing-extensions >=3.10.0.0
+    - setuptools
   run:
     - python
     - typing-extensions >=3.10.0.0
