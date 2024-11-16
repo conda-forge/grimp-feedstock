@@ -36,6 +36,7 @@ requirements:
 test:
   imports:
     - grimp
+    - grimp.build_graph
   commands:
     - pip check
     - python -c "from grimp import build_graph"
