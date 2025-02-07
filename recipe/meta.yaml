@@ -1,20 +1,20 @@
 {% set name = "grimp" %}
-{% set version = "3.5" %}
+{% set version = "3.6" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/grimp-{{ version }}.tar.gz
-  sha256: dc9560aed1d82222b361fe5f312a775b15a96b9237670f3a9fb20f44d30d5762
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/grimp-{{ version }}.tar.gz
+  sha256: d595598edaa9b621082ec57be0d83957b0bdfa45dd5149e6fb0b01a848d4285c
 
 build:
   skip: true  # [py<38]
   script:
     #- cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
     - {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   build:
