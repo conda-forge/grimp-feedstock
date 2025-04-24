@@ -1,5 +1,5 @@
 {% set name = "grimp" %}
-{% set version = "3.8" %}
+{% set version = "3.8.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/grimp-{{ version }}.tar.gz
-  sha256: 20d2acb8a07504df17abd31f6d312996121014331a1072bac923162efec28b77
+  sha256: d28a7326747e6c85eb8ed721d84f58a570d2ff49512044f0ecb2866e071bfc31
 
 build:
   skip: true  # [py<38]
@@ -31,6 +31,7 @@ requirements:
     - pip
   run:
     - python
+    - joblib >=1.3.0
     - typing-extensions >=3.10.0.0
 
 test:
