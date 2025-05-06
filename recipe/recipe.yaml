@@ -16,7 +16,25 @@ source:
 build:
   number: 0
   script:
-    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    - if: osx
+      then:
+        - if [[ "${MACOSX_SDK_VERSION}" != "11.0" ]]; then exit 1; fi
+    - if: unix
+      then:
+        # Unix recipe
+        - export OPENSSL_DIR="$PREFIX"
+        - cargo install --locked --bin rattler-build --root ${PREFIX} --path . --no-track
+        - cargo-bundle-licenses --format yaml --output ${SRC_DIR}/THIRDPARTY.yml
+        - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+      else:
+        # Win recipe
+        # hack: path too long for pixi_config subpackage, https://github.com/prefix-dev/pixi/issues/3691
+        - set CARGO_HOME=C:\.cargo
+        - md %CARGO_HOME%
+        - cargo install --locked --bins --root %PREFIX% --path . --no-track
+        - if errorlevel 1 exit 1
+        - cargo-bundle-licenses --format yaml --output %SRC_DIR%/THIRDPARTY.yml
+        - if errorlevel 1 exit 1
 
 requirements:
   build:
@@ -29,6 +47,7 @@ requirements:
     - ${{ compiler("c") }}
     - ${{ stdlib("c") }}
     - ${{ compiler("rust") }}
+    - cargo-bundle-licenses
   host:
     - python
     - pip
@@ -48,8 +67,9 @@ tests:
 
 about:
   summary: Builds a queryable graph of the imports within one or more Python packages.
-  license: BSD-2-Clause
-  license_file: LICENSE
+  license_file:
+    - LICENSE
+    - THIRDPARTY.yml
   homepage: https://pypi.org/project/grimp/
   description: |
     Builds a queryable graph of the imports within one or more Python packages.
