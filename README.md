@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/grimp-feedstock
 
 Home: https://pypi.org/project/grimp/
 
-Package license: BSD-2-Clause
+Package license: 
 
 Summary: Builds a queryable graph of the imports within one or more Python packages.
 
