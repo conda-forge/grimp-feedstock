@@ -60,7 +60,6 @@ about:
   license: BSD-2-Clause
   license_file:
     - LICENSE
-    #- THIRDPARTY.yml
   homepage: https://pypi.org/project/grimp/
   description: |
     Builds a queryable graph of the imports within one or more Python packages.
