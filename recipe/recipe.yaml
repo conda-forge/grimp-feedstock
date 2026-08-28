@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   name: grimp
-  version: "3.15"
+  version: "3.16"
 
 package:
   name: ${{ name|lower }}
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/grimp-${{ version }}.tar.gz
-  sha256: 91b57d4d801dc107ebfb5a7040d4777a152c579b5dc202426e1185e50931fe1e
+  sha256: 1aba8e6946ec9b05b466bfc52ecdc73c364f425ec196b13e495316b915fcf10e
 
 build:
   number: 0
